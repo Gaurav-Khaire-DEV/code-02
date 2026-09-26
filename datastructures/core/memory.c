@@ -32,11 +32,11 @@ void* set(void* start, u64 value, u64 bytes) {
 
 	u64 curr = 0;
 	for (u64 i = 0; i < strides8; i++) {
-		((u64*)start)[curr] = value;
+		((u64*)start)[curr / 8] = value;
 		curr += 8;
 	}
 	for (u64 i = 0; i < strides4; i++) {
-		((u32*)start)[curr] = value;
+		((u32*)start)[curr / 4] = value;
 		curr += 4;
 	}
 	for (u64 i = 0; i < strides1; i++) {
