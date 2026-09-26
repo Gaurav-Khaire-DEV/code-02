@@ -1,0 +1,21 @@
+- [ ] DataStructures
+	- [ ] Stack & Queue (FIFO)
+	- [ ] Circular Queue
+	- [ ] Tree (Helpful for Parsing ???)
+
+- [ ] Console I/O:
+	- [ ] Print F ???
+	- [ ] Pretty Printing 
+
+--- Kinda Interesting In Future ----
+
+- [ ] Parsing
+	- [ ] Json
+	- [ ] Markdown
+	- [ ] HTML
+
+- [ ] Networking:
+	- [ ] TCP
+	- [ ] HTTP
+	- [ ] HTTPS
+	- [ ] GRPC
