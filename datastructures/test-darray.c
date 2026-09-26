@@ -20,7 +20,7 @@ int main() {
 		first = DarrayPushMany(arena, first, second);
 	}
 
-	printf("After DarrayPushMany() -> \n");
+	printf(YELLOW "After DarrayPushMany() -> " RESET "\n");
 	for (u64 i = 0; i < first->size; i++) {
 		i32 val;
 		DarrayGet(first, i, &val);
@@ -29,13 +29,17 @@ int main() {
 	}
 	printf("\n");
 
-	printf("After DarrayClear() -> \n");
+	printf(YELLOW "After DarrayClear() ->" RESET "\n" );
 	first = DarrayClear(first);
 	for (u64 i = 0; i < first->size; i++) {
 		i32 val;
 		DarrayGet(first, i, &val);
 		printf("[%02zu]%02d ", i, val);
 		if (i && (i + 1) % 8 == 0) printf("\n");
+	}
+
+	for (i32 i = 0; i < 4; i++) {
+		arena = ArenaPushAssert(arena, 1000);
 	}
 
 	ArenaDestroy(arena);

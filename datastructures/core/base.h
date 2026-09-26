@@ -24,4 +24,11 @@ u64 CeilPwr2(u64 n);
 #define false 0
 #define NULL  0
 
+// ANSI CODES
+#define LIGHT_RED 	"\033[31m"
+#define RED			"\033[1;31m"
+#define RESET		"\033[0m"
+#define YELLOW 		"\033[1;32m"
+#define ORANGE		"\033[1;33m"
+
 #endif // _BASE_H_

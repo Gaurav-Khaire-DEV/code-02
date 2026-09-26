@@ -1,1 +1,6 @@
-echo "Not Implemented Yet, will need to write tests for core lib atleast"
+#!/bin/bash
+#
+
+set -ex
+
+gcc -Wall -Wextra -Wpedantic -fsanitize=address -o test-darray core/*.c -Icore test-darray.c && ./test-darray

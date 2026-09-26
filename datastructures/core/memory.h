@@ -3,8 +3,8 @@
 
 #include "base.h"
 
-void* copy(void* src, void* dst, u64 bytes);
+void* copy(void* _src, void* _dst, u64 _bytes);
 
-void* set(void* start, u64 value, u64 bytes);
+void* set(void* _start, u64 _value, u64 _bytes);
 
 #endif // _MEMORY_H_
