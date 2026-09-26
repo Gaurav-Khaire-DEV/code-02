@@ -2,6 +2,7 @@
 #include "memory.h"
 
 #include <stdlib.h>
+#include <stdio.h>
 #include <assert.h>
 
 // This is based on lib-c for now ...
@@ -14,9 +15,19 @@ Arena* ArenaCreate(u64 _size) {
 	for (int i = 0; i < 3 && arena == NULL; i++) {
 		arena = (Arena*)calloc(1, sizeof(Arena));
 	}
-	assert(arena != NULL);
+	if (arena == NULL) { fprintf(stderr, "Error While Creating Arena Itself\n"); }
+	assert(arena);
 
 	arena->start = calloc(_size, sizeof(char));
+	// if getting a NULL try 3 times and throw shit ...
+	for (int i = 0; i < 3 && arena->start == NULL; i++) {
+		arena->start = (Arena*)calloc(1, sizeof(Arena));
+	}
+	if (arena->start == NULL) { 
+		fprintf(stderr, RED "Error While Allocating for Arena" RESET "\n"); 
+	}
+	assert(arena);
+
 	arena->pos 	 = 0;
 	arena->size  = _size;
 
@@ -24,6 +35,9 @@ Arena* ArenaCreate(u64 _size) {
 }
 
 void* ArenaPushAssert(Arena* _arena, u64 _blockSize) {
+	if (_arena->pos + _blockSize > _arena->size) {
+		fprintf(stderr, RED "Exceeding Arena Size" RESET "\n");
+	}
 	assert(_arena->pos + _blockSize < _arena->size);
 
 	void* blockStart = &(((char*)_arena->start)[_arena->pos]);
