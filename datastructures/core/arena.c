@@ -17,6 +17,12 @@ Arena* ArenaCreate(u64 _size) {
 	assert(arena != NULL);
 
 	arena->start = calloc(_size, sizeof(char));
+	// if getting a NULL try 3 times and throw shit ...
+	for (int i = 0; i < 3 && arena->start == NULL; i++) {
+		arena->start = (Arena*)calloc(1, sizeof(Arena));
+	}
+	assert(arena->start != NULL);
+
 	arena->pos 	 = 0;
 	arena->size  = _size;
 

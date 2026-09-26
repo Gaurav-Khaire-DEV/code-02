@@ -3,11 +3,12 @@
 
 #include <stdint.h>
 
-typedef uint64_t u64;
-typedef uint32_t u32;
-typedef int64_t  i64;
-typedef int32_t  i32;
-typedef uint8_t   u8;
+typedef uint64_t    u64;
+typedef uint32_t    u32;
+typedef int64_t     i64;
+typedef int32_t     i32;
+typedef uint8_t      u8;
+typedef uint8_t	boolean;
 
 // Base ...
 u64 FloorPwr2(u64 n);
@@ -18,5 +19,9 @@ u64 CeilPwr2(u64 n);
 
 #define MIN(a, b) a < b ? a : b;
 #define MAX(a, b) a > b ? a : b;
+
+#define true  1
+#define false 0
+#define NULL  0
 
 #endif // _BASE_H_
