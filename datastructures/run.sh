@@ -3,4 +3,4 @@
 
 set -ex
 
-gcc -Wall -Wextra -Wpedantic -fsanitize=address -o main main.c && ./main
+gcc -Wall -Wextra -Wpedantic -fsanitize=address -o main core/*.c -Icore main.c && ./main
