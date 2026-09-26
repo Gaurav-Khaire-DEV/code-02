@@ -9,11 +9,11 @@ void* copy(void* src, void* dst, u64 bytes) {
 	u64 curr = 0;
 
 	for (u64 i = 0; i < strides8; i++) {
-		((u64*)dst)[curr] = ((u64*)src)[curr];
+		((u64*)dst)[curr / 8] = ((u64*)src)[curr / 8];
 		curr += 8;
 	}
 	for (u64 i = 0; i < strides4; i++) {
-		((u32*)dst)[curr] = ((u32*)src)[curr];
+		((u32*)dst)[curr / 4] = ((u32*)src)[curr / 4];
 		curr += 4;
 	}
 	for (u64 i = 0; i < strides1; i++) {
